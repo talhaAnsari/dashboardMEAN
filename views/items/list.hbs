@@ -1,0 +1,51 @@
+<h3><a class="btn btn-secondary" href="/items"><i class="fa fa-plus"></i>Create New</a>List of Items</h3>
+    <table id="datatable" class="table">
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                
+                <th>Price</th>
+                <th>Counter</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each list}}
+            <tr>
+                <td>{{this.ItemName}}</td>
+                
+                <td>{{this.Price}}</td>
+                <td>{{this.Counter}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+
+    <div id = "container" style = "width: 550px; height: 400px; margin: 0 auto"></div>
+      <script language = "JavaScript">
+         $(document).ready(function() {
+            var data = {
+               table: 'datatable'
+            };
+            var chart = {
+               type: 'column'
+            };
+            var title = {
+               text: 'Data extracted from a HTML table in the page'   
+            };      
+            var yAxis = {
+               allowDecimals: false,
+               title: {
+                  text: 'Units'
+               }
+            };
+         
+            var json = {};   
+            json.chart = chart; 
+            json.title = title; 
+            json.data = data;
+            json.yAxis = yAxis; 
+            $('#container').highcharts(json);
+         });
+      </script>
+
