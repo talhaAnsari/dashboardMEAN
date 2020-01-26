@@ -1,0 +1,49 @@
+<h3>BBB Dashboard Application</h3>
+    <table id="datatablee" class="table">
+        <thead>
+            <tr>
+                <th>Source</th>
+                <th>Number Of Orders</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each list}}
+            <tr>
+                <td>{{this.Source}}</td>
+                <td>{{this.Number_Of_Orders}}</td>
+                <td>{{this.Amount}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+
+    <div id = "container" style = "width: 550px; height: 400px; margin: 0 auto"></div>
+      <script language = "JavaScript">
+         $(document).ready(function() {
+            var data = {
+               table: 'datatablee'
+            };
+            var chart = {
+               type: 'column'
+            };
+            var title = {
+               text: 'Data extracted from a HTML table in the page'   
+            };      
+            var yAxis = {
+               allowDecimals: false,
+               title: {
+                  text: 'Units'
+               }
+            };
+         
+            var json = {};   
+            json.chart = chart; 
+            json.title = title; 
+            json.data = data;
+            json.yAxis = yAxis; 
+            $('#container').highcharts(json);
+         });
+      </script>
+

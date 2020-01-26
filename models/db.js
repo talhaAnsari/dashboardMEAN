@@ -7,3 +7,4 @@ mongoose.connect('mongodb://localhost:27017/dashboard',{useNewUrlParser : true},
 });
 
 require('./items.model');
+require('./home.model');
